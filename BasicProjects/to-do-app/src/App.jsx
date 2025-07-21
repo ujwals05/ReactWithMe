@@ -1,9 +1,12 @@
 import AppHead from "./components/appHead"
 import style from "./App.module.css"
 import AddItem from "./components/addItem";
+import { useState } from "react";
+
 
 function App() {
 
+  
   let data = [
   {
     taskName:"ReactJS",
@@ -21,7 +24,7 @@ function App() {
   return (
     <>
     <h1 className={style.appTitle}>ToDo App</h1>
-    <AppHead/>
+    <AppHead />
     <AddItem data={data} />
     </>
   )

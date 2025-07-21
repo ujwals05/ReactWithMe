@@ -1,6 +1,9 @@
 import style from "./appHead.module.css"
+import { useState } from "react"
 
-const AppHead = () => {
+const AppHead = ( ) => {
+
+
   return <div className={`container text-center ${style.mainDiv}`}>
     <div className="row">
       <div className="col-6">
