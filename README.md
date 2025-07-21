@@ -24,3 +24,13 @@
   </li>
 </ul>
 
+<br>
+
+<ul>
+  <li>
+    1.npm i bootstrap@latest
+  </li>
+  <li>
+    2. Go inside main.jsx file and add up ->(import 'bootstrap/dist/css/bootstrap.min.css')
+  </li>
+</ul>
