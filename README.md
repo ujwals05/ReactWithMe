@@ -17,7 +17,7 @@
     3. cd project_name
   </li>
   <li>
-    4. npm install (This will intall all the dependencies)
+    4. npm install (This will install all the dependencies)
   </li>
   <li>
     5. npm run dev (This can be altered in package.json file)
