@@ -8,7 +8,7 @@
 <b>Creating a react-app(vite)</b><br>
 <ul>
   <li>
-    1.npm create vite@latest
+    1. npm create vite@latest
   </li>
   <li>
     2. i.name your project / ii.select framework / iii.select variant(lanuage)
@@ -26,6 +26,7 @@
 
 <br>
 
+<b>Implementing Bootstrap into react</b><br>
 <ul>
   <li>
     1.npm i bootstrap@latest
