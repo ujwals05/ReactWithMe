@@ -1,7 +1,7 @@
 # ReactWithMe
 <p>
   Hey I am on my way to learn react.js clear basics </br>
-  So this repo will contain my daily updates</br>
+  This repository will contain my daily progress, projects, and notes as I explore the fundamentals of React using **Vite**.</br>
 </p>
 
 
