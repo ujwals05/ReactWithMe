@@ -1,8 +1,7 @@
-const Title = () => {
+const Title = ({title}) => {
   let webpage = "First react webpage"
   return <h1>
-    This is the title <br/>
-    {webpage}
+    {title}
   </h1>
 }
 
