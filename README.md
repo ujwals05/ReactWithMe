@@ -35,3 +35,13 @@
     2. Go inside main.jsx file and add up ->(import 'bootstrap/dist/css/bootstrap.min.css')
   </li>
 </ul>
+
+<b> Use "React-icon library</b>
+<ul>
+  <li>
+    npm i react-icons -save (Run this in ur react app dir[terminal])
+  </li>
+  <li>
+    import{"icon name"} from react-icons/"iconPlace" (Use this in the file where ur using icon)
+  </li>
+</ul>
