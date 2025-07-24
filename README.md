@@ -36,7 +36,7 @@
   </li>
 </ul>
 
-<b> Use "React-icon library</b>
+<b> Use "React-icon" library</b>
 <ul>
   <li>
     npm i react-icons -save (Run this in ur react app dir[terminal])
@@ -45,3 +45,7 @@
     import{"icon name"} from react-icons/"iconPlace" (Use this in the file where ur using icon)
   </li>
 </ul>
+
+<b>Use "React developer Tool" for inspecting -> Download this in your web browser</b>
+
+
