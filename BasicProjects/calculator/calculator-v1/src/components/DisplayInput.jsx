@@ -1,10 +1,15 @@
 import style from "./DisplayInput.module.css"
 
-const DisplayInput = () =>{
+const DisplayInput = ({currentVal}) =>{
   return(
     <>
-    <div>
-      <input className={style.displayInput} type="text" readOnly/>
+    <div> 
+      <input 
+      className={style.displayInput} 
+      type="text" 
+      readOnly
+      value={currentVal}
+      > </input>
     </div>
     </>
   )
