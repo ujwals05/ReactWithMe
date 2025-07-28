@@ -48,4 +48,12 @@
 
 <b>Use "React developer Tool" for inspecting -> Download this in your web browser</b>
 
+<b>Running the basic project locally</b>
+<p>
+  Make sure you have [Node.js](https://nodejs.org/) installed.<br>
+  Clone the repository<br>
+  cd BasicProjects/"projectName_which_you_want_to_run"<br>
+  npm install<br>
+  npm run dev
+</p>
 
