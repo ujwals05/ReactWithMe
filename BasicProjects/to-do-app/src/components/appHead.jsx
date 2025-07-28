@@ -1,23 +1,46 @@
 import style from "./appHead.module.css"
-import { useState } from "react"
+import { ContextAPI } from "../store/ContextAPI";
+import { useRef,useContext } from "react";
 
-const AppHead = ( ) => {
+const AppHead = ({AddItem}) => {
 
+  const {handleAddItem} = useContext(ContextAPI)
 
-  return <div className={`container text-center ${style.mainDiv}`}>
+  const AddTask = useRef();
+  const AddDate = useRef();
+
+  let handleClick = () => {
+    let tasking =  AddTask.current.value;
+    let dating = AddDate.current.value 
+    if(tasking != "" &&dating != "")
+      handleAddItem(tasking,dating);
+    else
+      alert("Enter both Task and Date.");
+    AddTask.current.value = "";
+    AddDate.current.value = "";
+  }
+
+  return (
+  <div className={`container text-center ${style.mainDiv}`}>
     <div className="row">
       <div className="col-6">
-        <input type="text" />
+        <input type="text" 
+        placeholder="Enter the task"
+        ref={AddTask}/>
       </div>
       <div className="col-4">
-        <input type="date"/>
+        <input type="date"
+        ref={AddDate}/>
       </div>
       <div className="col-2">
-        <button type="button" className="btn btn-success">Add</button>
+        <button type="button" 
+        className="btn btn-success" 
+        onClick={handleClick}
+        >Add</button>
       </div>
     </div>
   </div>
-  
+  )
 }
 
 export default AppHead;

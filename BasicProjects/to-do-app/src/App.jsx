@@ -1,12 +1,14 @@
 import AppHead from "./components/appHead"
 import style from "./App.module.css"
 import AddItem from "./components/addItem";
+import DefaultMessage from "./components/DefaultMessage";
+import { ContextAPI } from "./store/ContextAPI";
 import { useState } from "react";
 
 
 function App() {
 
-  
+  //Sample output:
   let data = [
   {
     taskName:"ReactJS",
@@ -21,11 +23,35 @@ function App() {
     taskDate:"23-07-2025"
   },
 ]
+
+const [taskList,addTask] = useState([]);
+
+const handleAddItem = (task,date) => {
+  const newArr = [...taskList,{taskName:task,taskDate:date}];
+  addTask(newArr);
+}
+
+const handleDeleteItem = (task) => {
+  const newArr = taskList.filter((item)=>item.taskName!=task);
+  addTask(newArr);
+}
+
   return (
     <>
     <h1 className={style.appTitle}>ToDo App</h1>
-    <AppHead />
-    <AddItem data={data} />
+    <ContextAPI
+    value={
+      {
+        taskList,
+        handleAddItem,
+        handleDeleteItem,
+      }
+    }
+    >
+      <AppHead />
+      <DefaultMessage/>
+      <AddItem data={taskList} DeleteItem={handleDeleteItem} />
+    </ContextAPI>
     </>
   )
 }
