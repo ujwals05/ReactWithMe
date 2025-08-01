@@ -9,6 +9,7 @@ export const Posting = createContext({
 let DEFAULT = [
   {
     id: "1",
+    names:"Babu",
     title: "Visit to MUMBAI",
     body: "Hello buddies I recenlty visited to mumabai had to good time here, Hope to visit again",
     reactions: 8,
@@ -16,6 +17,7 @@ let DEFAULT = [
   },
   {
     id: "2",
+    names:"Goli",
     title: "Nkn pass anko",
     body: "Pass agbitte guru after 3 attempts",
     reactions: 10,
@@ -23,10 +25,13 @@ let DEFAULT = [
   },
 ];
 
+
 const postListReducer = (currListPosition,action) => {
   let newList = currListPosition;
   if(action.type ==="DELETE_POST"){
     newList = currListPosition.filter((post)=>post.id!==action.payload.postId);
+  }else if (action.type === "ADD_POST"){
+    newList = [action.payload,...currListPosition]
   }
   return newList;
 }
@@ -35,9 +40,19 @@ const PostListProvider = ({children}) => {
 
   const [postList,dispatch]=useReducer(postListReducer,DEFAULT);
 
-  const addPost = () => {
-
-  }
+  const addPost = (name, title, body, hash) => {
+    console.log(`${name} ${title} ${body} ${hash}`)
+    dispatch({
+      type:"ADD_POST",
+      payload: {
+        id:Date.now(),
+        names:name,
+        title:title,
+        body:body,
+        tags:hash
+      }
+    })
+  };
 
   const deletePost = (postId) => {
     dispatch({

@@ -8,11 +8,19 @@ import { Posting } from "../store/post-list-store";
     const {deletePost} = useContext(Posting)
     return (
       <>
-        <div className="card" style={{  marginBottom: "20px" }}>
+        <div className="card" style={{ marginBottom: "20px" }}>
           <div className="card-body">
-            <h5 className="card-title">
+            <span class="btn btn-outline-success" style={{marginBottom:"12px"}}>
+              {post.names}
+            </span>
+            <h5 className="card-title"> 
               {post.title}
-              <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" onClick={()=>{deletePost(post.id)}}>
+              <span
+                className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                onClick={() => {
+                  deletePost(post.id);
+                }}
+              >
                 <MdDeleteForever />
                 <span className="visually-hidden">unread messages</span>
               </span>

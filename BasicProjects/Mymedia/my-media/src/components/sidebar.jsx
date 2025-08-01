@@ -10,7 +10,6 @@ const Sidebar = ({handleClick,Tab}) => {
           className="nav-item"
           onClick={() => {
             handleClick("Home");
-            console.log("clicked Home");
           }}
         >
           <a
@@ -31,7 +30,6 @@ const Sidebar = ({handleClick,Tab}) => {
         <li
           onClick={() => {
             handleClick("Post");
-            console.log("Clicked Post");
           }}
         >
           <a href="#" className={`nav-link ${Tab === "Post" && "active" }`}>
