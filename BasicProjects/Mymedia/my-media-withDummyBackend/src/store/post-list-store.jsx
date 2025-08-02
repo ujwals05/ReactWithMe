@@ -1,9 +1,10 @@
 import { createContext, useReducer } from "react";
 
 export const Posting = createContext({
-  postList:[],
-  addPost: ()=>{},
-  deletePost: ()=>{}
+  postList: [],
+  addPost: () => {},
+  deletePost: () => {},
+  addInitalPosts:() => {}
 });
 
 let DEFAULT = [
@@ -30,6 +31,8 @@ const postListReducer = (currListPosition,action) => {
   let newList = currListPosition;
   if(action.type ==="DELETE_POST"){
     newList = currListPosition.filter((post)=>post.id!==action.payload.postId);
+  }else if(action.type ==="ADD_INITIAL_POST"){
+    newList = action.payload.posts;
   }else if (action.type === "ADD_POST"){
     newList = [action.payload,...currListPosition]
   }
@@ -38,7 +41,19 @@ const postListReducer = (currListPosition,action) => {
 
 const PostListProvider = ({children}) => {
 
-  const [postList,dispatch]=useReducer(postListReducer,DEFAULT);
+  
+
+  const [postList,dispatch]=useReducer(postListReducer,[]);
+
+    const addInitalPosts = (posts) => {
+      console.log(`posts`);
+      dispatch({
+        type: "ADD_INITIAL_POST",
+        payload: {
+          posts
+        },
+      });
+    };
 
   const addPost = (name, title, body, hash) => {
     console.log(`${name} ${title} ${body} ${hash}`)
@@ -64,6 +79,7 @@ const PostListProvider = ({children}) => {
   }
   return <Posting.Provider value={{
     postList,
+    addInitalPosts,
     addPost,
     deletePost
   }}>

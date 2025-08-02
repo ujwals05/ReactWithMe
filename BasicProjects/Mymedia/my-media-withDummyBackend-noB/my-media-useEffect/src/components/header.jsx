@@ -5,7 +5,7 @@ const Header = () => {
         <div className="col-md-3 mb-2 mb-md-0">
           <a
             href="/"
-            className="d-inline-flex link-body-emphasis text-decoration-none"
+            className="d-inline-flex link-body-emphasis text-decoration-none" 
           >
             <h3 className="mb-0">MyMedia</h3>
           </a>
