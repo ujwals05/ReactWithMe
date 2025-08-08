@@ -5,7 +5,7 @@ export const Posting = createContext({
   addPost: () => {},
   deletePost: () => {},
   addInitalPosts:() => {}
-});
+}); 
 
 let DEFAULT = [
   {

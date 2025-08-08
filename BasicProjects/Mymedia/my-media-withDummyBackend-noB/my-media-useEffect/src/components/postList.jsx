@@ -8,7 +8,7 @@ import { useState } from "react";
 
 const PostList = () => {
   const {postList,addInitalPosts} = useContext(Posting);
-  const [fetchData,setfetch] = useState(false)
+  const [fetchData,setfetch] = useState(false);
 
   useEffect(()=>{
 
