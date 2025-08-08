@@ -1,23 +1,42 @@
 import { useContext, useRef } from "react";
 import { Posting } from "../store/post-list-store";
+import { useNavigate } from "react-router-dom";
 
 const CreatePost = () => {
 
   const {addPost} = useContext(Posting);
-  const nameElement = useRef();
+
+  const navigate = useNavigate();
+
+  const userIdElement = useRef();
   const titleElement = useRef();
   const bodyElement = useRef();
   const hashElement = useRef();
 
   const handleSubmit = () => {
     event.preventDefault(); 
-    const name = nameElement.current.value;
+    const userId = userIdElement.current.value;
     const title = titleElement.current.value;
     const body = bodyElement.current.value;
     const hash = hashElement.current.value.split(' ');
-    addPost(name,title,body,hash);
 
-    nameElement.current.value=" ";
+    fetch("https://dummyjson.com/posts/add", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        userId :userId,
+        title: title,
+        body: body,
+        tags: hash,
+      }),
+    })
+      .then((res) => res.json())
+      .then(post => {
+        addPost(post);
+      navigate("/")}
+      );
+
+    userIdElement.current.value=" ";
     titleElement.current.value=" ";
     bodyElement.current.value=" ";
     hashElement.current.value=" ";
@@ -29,13 +48,13 @@ const CreatePost = () => {
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="Title" className="form-label">
-            Your name :
+            Enter your id:
           </label>
           <input
             type="text"
-            ref={nameElement}
+            ref={userIdElement}
             className="form-control"
-            placeholder="Name"
+            placeholder="ID"
             id="userID"
           />
         </div>

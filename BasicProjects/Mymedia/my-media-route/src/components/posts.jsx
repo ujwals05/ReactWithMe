@@ -1,10 +1,9 @@
-  import { useContext } from "react";
+import { useContext } from "react";
 import { MdDeleteForever } from "react-icons/md";
 import { Posting } from "../store/post-list-store";
 
   const Post = ({ post }) => {
     let Tags = post.tags;
-
     const {deletePost} = useContext(Posting)
     return (
       <>

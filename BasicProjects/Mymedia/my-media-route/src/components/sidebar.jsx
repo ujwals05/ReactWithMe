@@ -20,12 +20,11 @@ const Sidebar = ({ handleClick, Tab }) => {
             Home
           </Link>
         </li>
-        <li
-          onClick={() => {
-            handleClick("Post");
-          }}
-        >
-          <Link to="/create-post" className={`nav-link ${Tab === "Post" && "active"}`}>
+        <li>
+          <Link
+            to="/create-post"
+            className={`nav-link ${Tab === "Post" && "active"}`}
+          >
             <svg
               className="bi pe-none me-2"
               width="16"

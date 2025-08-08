@@ -6,20 +6,8 @@ import { Posting } from "../store/post-list-store";
 import { useState } from "react";
  
 const PostList = () => {
-  const {postList,addInitalPosts} = useContext(Posting);
+  const {postList,firstState} = useContext(Posting);
 
-  const [firstState,nextState] = useState(false);
-
-   
-    useEffect(()=>{
-      nextState(true);
-      fetch("https://dummyjson.com/posts")
-        .then((res) => res.json())
-        .then((data) => {
-          addInitalPosts(data.posts);
-          nextState(false)
-        });
-    },[])
 
   return (
     <>
